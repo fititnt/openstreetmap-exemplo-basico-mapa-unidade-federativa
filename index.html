@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Edite <title> e content de meta description -->
+    <title>openstreetmap-exemplo-basico-mapa-unidade-federativa</title>
+    <meta name="description" content="Descrição de exemplo de openstreetmap-exemplo-basico-mapa-unidade-federativa">
+    <!-- Edite <title> e content de meta description -->
+
+    <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.3/dist/leaflet-search.src.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.3/dist/leaflet-search.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        //**** Inicializa o Leaflet (ALTERE OS DADOS NESTA PARTE), inicio ***//
+        // Altere nomes, latitude e longitude. Pode achar online em:
+        // https://nominatim.openstreetmap.org/ui/search.html
+
+        // Exemplo: Centre Point (lat,lon) de Rio Grande do Sul = -29.8425284,-53.7680577
+        var map = L.map('map').setView({ lat: -29.8425284, lon: -53.7680577 }, 7);
+
+        // Exemplo: Centre Point (lat,lon) de Porto Alegre = -30.0324999,-51.2303767
+        L.marker({ lat: -30.0324999, lon: -51.2303767 }).bindPopup(
+            'Porto Alegre (Rio Grande do Sul)').addTo(map);
+        //****** Inicializa o Leaflet (ALTERE OS DADOS NESTA PARTE), fim *****//
+
+        // Adiciona os tiles e informa direitos de cópia
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+
+        // Exibe a escala no canto esquerdo inferior
+        L.control.scale({ imperial: true, metric: true }).addTo(map);
+
+        // Responsável por exibir o icone de busca
+        map.addControl(new L.Control.Search({
+            url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+            jsonpParam: 'json_callback',
+            propertyName: 'display_name',
+            propertyLoc: ['lat', 'lon'],
+            marker: L.circleMarker([0, 0], { radius: 30 }),
+            autoCollapse: true,
+            autoType: false,
+            minLength: 2
+        }));
+    </script>
+</body>
+
+</html>

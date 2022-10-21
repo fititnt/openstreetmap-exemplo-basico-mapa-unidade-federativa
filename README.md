@@ -1,2 +1,21 @@
-# openstreetmap-exemplo-basico-mapa-cidade
-[DRAFT] @see https://github.com/fititnt/github-para-mapeadores-avancados-da-openstreetmap
+# openstreetmap-exemplo-basico-mapa-unidade-federativa
+**Exemplo de projeto HTML simples para mostrar como funciona _Fork_ + _GitHub Pages_ e exibição de mapa**.
+Pode ser usado como parte de [treinamentos como os baseados neste](https://github.com/fititnt/github-para-mapeadores-avancados-da-openstreetmap).
+
+## Passos que devem ser feitos
+
+- Faça um fork (ou copie os arquivos) deste repositório
+- Altere o nome do seu repositório
+  - Por exemplo: de `openstreetmap-exemplo-basico-mapa-unidade-federativa` use `mapa-<NomeDaUF>` onde `<NomeDaUF>` é o nome da unidade federativa em caixa baixa e sem acentos.
+- Edite [index.html](index.html)
+  - Recomendado alterar latitude, longitude e nome do marcador.
+  - <https://nominatim.openstreetmap.org/ui/search.html> pode ser usado para descobrir estes dados
+- Salve a alteração.
+  - Use uma mensagem descritiva. Exemplo: "Alterado dados para cidade NomeDaUF"
+- Altere o repositório para ser exibido também como uma página de GitHub pages. Aguarde terminar.
+- Salve este URL do projeto também nas informações do seu repositório
+
+### O que fazer depois disso?
+Este projeto é apenas um exemplo com licença domínio publico. Não é necessário citar fonte.
+
+Dica: se fizer alterações significativas, o ideal é fazer em repositório que já não seja um fork. Jeito mais simples é copiar criar repositório novo e copiar os arquivos.
